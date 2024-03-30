@@ -1,7 +1,9 @@
 from record import Record
-from field import Name
+from field import Name, Phone, Email
 from datetime import datetime, timedelta
 import pickle
+from record import Record
+
 
 
 class AddressBook:
@@ -34,27 +36,6 @@ class AddressBook:
 
         return names_to_congratulate
 
-    def handle_command(command, args):
-        if command == "add":
-            # Logic to add a new contact
-        elif command == "change":
-            # Logic to change a contact's phone
-        elif command == "phone":
-            # Logic to display a contact's phone
-        elif command == "all":
-            # Logic to display all contacts
-        elif command == "add-birthday":
-            # Logic to add a birthday to a contact
-        elif command == "show-birthday":
-            # Logic to show a contact's birthday
-        elif command == "birthdays":
-            # Logic to show upcoming birthdays within the next week
-        elif command == "hello":
-            return "Hello! How can I help you?"
-        elif command in ["close", "exit"]:
-            # Logic to close the app
-        else:
-            return "Unknown command."
 
     def save_to_file(self, file_path):
         with open(file_path, 'wb') as file:

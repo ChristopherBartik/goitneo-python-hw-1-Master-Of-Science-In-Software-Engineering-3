@@ -8,9 +8,7 @@ class Field:
 
 class Name(Field):
     def __init__(self, value):
-        if not self.validate(value):
-            raise ValueError("Birthday must be in DD.MM.YYYY format")
-        self.value = datetime.datetime.strptime(value, "%d.%m.%Y")
+
 
     @staticmethod
     def validate(date_text):
@@ -21,7 +19,12 @@ class Name(Field):
             return False
 class Birthday(Field):
     def __init__(self, value):
+        if not self.validate(value):
+            raise ValueError("Birthday must be in DD.MM.YYYY format")
+        self.value = datetime.datetime.strptime(value, "%d.%m.%Y")
         super().__init__(value)
+
+
 
 class Phone(Field):
 
@@ -33,6 +36,10 @@ class Phone(Field):
     @staticmethod
     def validate(phone_number):
         return bool(re.match(r'^\d{10}$', phone_number))
+
+class Email(Field):
+    def __init__(self, value):
+        super().__init__(value)
 
 
 
